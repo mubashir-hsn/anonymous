@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import Link from 'next/link'
-import { useDebounceValue, useDebounceCallback } from 'usehooks-ts'
+import {  useDebounceCallback } from 'usehooks-ts'
 import { toast } from "sonner"
 import { useRouter } from 'next/navigation'
 import { signUpSchema } from '@/schemas/schema'
@@ -80,8 +80,8 @@ const SignUpPage = () => {
         }
     }
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-800">
-            <div className="w-full max-w-lg p-8 space-y-8 bg-white rounded-lg shadow-md">
+        <div className="flex justify-center items-center min-h-screen bg-white">
+            <div className="w-full max-w-xl p-8 space-y-8 bg-white">
                 <div className="text-center">
                     <h1 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                         Join Anonymous Feedback
