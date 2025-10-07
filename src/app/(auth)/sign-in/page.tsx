@@ -54,16 +54,16 @@ const SignInPage = () => {
 
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-white">
-            <div className="w-full max-w-xl p-8 space-y-8 bg-white">
+        <div className="flex justify-center items-center min-h-screen bg-slate-50">
+            <div className="w-full max-w-md rounded shadow-md p-8 space-y-8 bg-white">
                 <div className="text-center">
-                    <h1 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                    <h1 className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                         Join Anonymous Feedback
                     </h1>
-                    <p className="mb-4">Sign In to start your anonymous adventure</p>
+                    <p className="mb-3 text-muted-foreground">Sign In to start your anonymous adventure</p>
                 </div>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
 
                         <FormField
                             name="identifier"
@@ -71,7 +71,7 @@ const SignInPage = () => {
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Username/Email</FormLabel>
-                                    <Input {...field} name="identifier" placeholder='username or email' />
+                                    <Input {...field} name="identifier" />
                                     <FormMessage />
                                 </FormItem>
                             )}
