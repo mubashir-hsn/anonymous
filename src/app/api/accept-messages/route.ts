@@ -38,7 +38,7 @@ export async function POST(request:Request){
 
     return Response.json({
         success: true,
-        message:"Status chsnges successfully",
+        message:"Status changes successfully",
         updatedUser
     },{status:201})
     
@@ -80,7 +80,7 @@ export async function GET(request: Request){
 
     return Response.json({
         success: true,
-        isAcceptingMessage: foundUser.isAcceptingMessage
+        isAcceptingMessages: foundUser.isAcceptingMessage
     },{status:201})
     
   } catch (error) {

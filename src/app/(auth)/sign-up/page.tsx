@@ -83,8 +83,8 @@ const SignUpPage = () => {
         <div className="flex justify-center items-center min-h-screen bg-slate-50">
             <div className="w-full max-w-md rounded shadow-md p-8 space-y-8 bg-white">
                 <div className="text-center">
-                    <h1 className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-                        Join Anonymous Feedback
+                    <h1 className="text-4xl font-extrabold mb-2 text-gray-800">
+                        <span className='bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent'>Join</span> 💬 Anonify
                     </h1>
                     <p className="mb-3 text-muted-foreground">Sign up to start your anonymous adventure</p>
                 </div>
