@@ -85,7 +85,7 @@ const page = () => {
     }
   }
 
-  const { username } = session?.user as User;
+  const username  = session?.user?.username as User;
 
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
   const profileUrl = `${baseUrl}/u/${username}`;
@@ -110,7 +110,7 @@ const page = () => {
             type="text"
             value={profileUrl}
             disabled
-            className="input input-bordered w-full p-2 mr-2"
+            className="input input-bordered w-full p-2 mr-2 bg-slate-100"
           />
           <Button onClick={copyToClipboard}>Copy</Button>
         </div>
