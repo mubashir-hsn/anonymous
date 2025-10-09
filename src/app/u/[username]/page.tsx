@@ -2,10 +2,11 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 import { messageSchema } from '@/schemas/schema';
 import { ApiResponse } from '@/types/apiResponse';
 import { zodResolver } from '@hookform/resolvers/zod';
-import  axios, { AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Loader2, Send } from 'lucide-react';
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
@@ -13,28 +14,36 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import z from 'zod';
 
+
+const sampleMessages = [
+  "Hey! How’s everything going today",
+  "Someone stole my snack today — if you’re reading this, confess! 😄",
+  "You dropped this: ☕ — consider it an anonymous coffee for your hard work.",
+  "You’re doing better than you think. Also, please fix that typo on the homepage 😉",
+]
+
 const page = () => {
   const { username } = useParams();
 
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const form = useForm<z.infer<typeof messageSchema>>({
     resolver: zodResolver(messageSchema),
   });
 
-  const onSubmit = async (data: z.infer<typeof messageSchema>) => { 
+  const onSubmit = async (data: z.infer<typeof messageSchema>) => {
     setIsLoading(true);
     try {
 
-      const res = await axios.post('/api/send-message',{username, content: data.content});
+      const res = await axios.post('/api/send-message', { username, content: data.content });
       toast.success(res.data.message);
       setMessage('');
     } catch (error) {
       console.error("Error while sending message", error);
       let axiosError = error as AxiosError<ApiResponse>;
       toast.error(axiosError?.response?.data.message ?? "Failed to send message")
-    }finally{
+    } finally {
       setIsLoading(false)
     }
   }
@@ -55,7 +64,7 @@ const page = () => {
       {/* form to send message */}
       <div className='px-8 md:px-14 py-8 m-auto'>
         <h3 className='text-lg py-4 mb-5 font-semibold text-gray-800'>Send Message to {username}:</h3>
-        <div>
+        <div className='mb-5'>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-md">
 
@@ -99,7 +108,22 @@ const page = () => {
             </form>
           </Form>
         </div>
+
+        <Separator />
+
+        <div>
+          <h1 className='text-lg py-4 mb-3 font-semibold text-gray-800'>Sample Message's</h1>
+           <div className='flex flex-col gap-3'>
+           {
+            sampleMessages.map((m,index)=>(
+              <Button className='inline w-fit' variant={"outline"} key={index} onClick={()=> setMessage(m)}>{m}</Button>
+            ))
+           }
+           </div>
+        </div>
       </div>
+
+
 
     </>
 
