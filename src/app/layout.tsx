@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anonymous Message",
+  title: "Anonify | Send Feedback Anonymously",
   description: "",
 };
 
