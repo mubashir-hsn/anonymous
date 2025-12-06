@@ -36,10 +36,10 @@ Anonify is a modern **Next.js** application designed to collect and manage **ano
 
 ---
 ## Create a .env.local file and add your environment variables:
-MONGO_URI=your_mongodb_connection_string
-NEXTAUTH_SECRET=your_nextauth_secret
-EMAIL_SERVER_USER=your_email_user
-EMAIL_SERVER_PASS=your_email_password
+- MONGO_URI=your_mongodb_connection_string
+- NEXTAUTH_SECRET=your_nextauth_secret
+- EMAIL_SERVER_USER=your_email_user
+- EMAIL_SERVER_PASS=your_email_password
 
 ---
 ## ⚡ Installation
